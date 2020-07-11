@@ -4,6 +4,7 @@ import com.jongyeon.book.domain.posts.Posts;
 import com.jongyeon.book.service.PostsService;
 import com.jongyeon.book.web.dto.PostsResponseDto;
 import com.jongyeon.book.web.dto.PostsSaveRequestDto;
+import com.jongyeon.book.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +19,7 @@ public class PostApiController {
     }
 
     @PutMapping("/api/v1/posts/{id}")
-    public Long update(@PathVariable Long id, @RequestBody PostsSaveRequestDto requestDto){
+    public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto){
         return postsService.update(id, requestDto);
     }
 
@@ -26,6 +27,7 @@ public class PostApiController {
     public PostsResponseDto findById(@PathVariable Long id){
         return postsService.findById(id);
     }
+
 
 
 }
